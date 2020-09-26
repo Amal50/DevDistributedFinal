@@ -9,42 +9,42 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace College.RestApi.Controllers
 {
-    [Route("api/Courses")]
+    [Route("api/Students")]
     [ApiController]
-    public class CoursesController : ControllerBase
+    public class StudentController : ControllerBase
     {
-        private readonly CourseLogic _courseLogic;
+        private readonly StudentLogic _studentLogic;
 
-        public CoursesController(CourseLogic courseLogic)
+        public StudentController(StudentLogic studentLogic)
         {
-            _courseLogic = courseLogic;
+            _studentLogic = studentLogic;
         }
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_courseLogic.GetAll());
+            return Ok(_studentLogic.GetAll());
         }
         [HttpGet("{id}")]
         public IActionResult Get(Guid id)
         {
-            return Ok(_courseLogic.GetSingle(id));
+            return Ok(_studentLogic.GetSingle(id));
         }
         [HttpPost]
-        public IActionResult Post([FromBody] Course course)
+        public IActionResult Post([FromBody] Student student)
         {
-            _courseLogic.Add(course);
+            _studentLogic.Add(student);
             return Ok();
         }
         [HttpPut]
-        public IActionResult Put([FromBody] Course course)
+        public IActionResult Put([FromBody] Student student)
         {
-            _courseLogic.Update(course);
+            _studentLogic.Update(student);
             return NoContent();
         }
         [HttpDelete]
-        public IActionResult Delete([FromBody] Course course)
+        public IActionResult Delete([FromBody] Student student)
         {
-            _courseLogic.Delete(course);
+            _studentLogic.Delete(student);
             return Ok();
         }
     }
