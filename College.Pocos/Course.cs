@@ -10,7 +10,7 @@ namespace College.Pocos
         public Guid Id { get; set; }
         public string CourseName { get; set; }
         public int Credits { get; set; }
-        public int DepartmentID { get; set; }
+        public Guid DepartmentID { get; set; }
         [ForeignKey("DepartmentID")]
         public Department Department { get; set; }
         public ICollection<Enrollment> Enrollments { get; set; }

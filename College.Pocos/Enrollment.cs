@@ -8,8 +8,8 @@ namespace College.Pocos
     public class Enrollment : IAudit
     {
         public Guid Id { get; set; }
-        public int CourseID { get; set; }
-        public int StudentID { get; set; }
+        public Guid CourseID { get; set; }
+        public Guid StudentID { get; set; }
         [ForeignKey("CourseID")]
         public Course Course { get; set; }
         [ForeignKey("StudentID")]
